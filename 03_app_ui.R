@@ -4,13 +4,17 @@ ui <- fluidPage(
     card(
       titlePanel("R for Bio Data Science"),
       style = "background-color: #f0f0f0; padding: 15px;"
-    )),
+    )
+  ),
+  
   layout_columns(
     col_widths = 12,
     card(
       titlePanel("About"),
       helpText("This Posit app lets you generate DNA sequences of the length of your choice with probabilities for each base")
-    )),
+    )
+  ),
+  
   layout_columns(
     col_widths = 12,
     card(
@@ -20,10 +24,10 @@ ui <- fluidPage(
                   min = 1,
                   max = 60,
                   value = 30,
-                  width = "100%"),
+                  width = "100%")
     )
-    
   ),
+  
   sidebarLayout(
     sidebarPanel(
       numericInput(inputId = "probability_A",
@@ -34,7 +38,8 @@ ui <- fluidPage(
     ),
     mainPanel(
       textOutput(outputId = "P(A)")
-    )),
+    )
+  ),
   
   sidebarLayout(
     sidebarPanel(
@@ -46,8 +51,9 @@ ui <- fluidPage(
     ),
     mainPanel(
       textOutput(outputId = "P(T)")
-      
-    )),
+    )
+  ),
+  
   sidebarLayout(
     sidebarPanel(
       numericInput(inputId = "probability_C",
@@ -57,7 +63,10 @@ ui <- fluidPage(
                    value = 0.25)
     ),
     mainPanel(
-      textOutput(outputId = "P(C)"))),
+      textOutput(outputId = "P(C)")
+    )
+  ),
+  
   sidebarLayout(
     sidebarPanel(
       numericInput(inputId = "probability_G",
@@ -70,10 +79,24 @@ ui <- fluidPage(
       textOutput(outputId = "P(G)")
     )
   ),
+  
   layout_columns(
     col_widths = 12,
     card(
       card_header("Virtual Gene output"),
       mainPanel(
         verbatimTextOutput(outputId = "dna")
-      ))))
+      )
+    )
+  ),
+  
+  layout_columns(
+    col_widths = 12,
+    card(
+      card_header("Base Counts"),
+      mainPanel(
+        tableOutput(outputId = "base_counts_table")
+      )
+    )
+  )
+)
