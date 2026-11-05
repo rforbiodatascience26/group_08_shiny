@@ -102,14 +102,43 @@ ui <- fluidPage(
   layout_columns(
     col_widths = 12,
     card(
-      card_header("virtual_rna_pol"),
+      card_header("Virtual RNA Polymerase"),
       textAreaInput(inputId = "DNA_seq",
-                    label = "virtual_arn_pol",
+                    label = "DNA Sequence input to transcribe",
                     value = "",
                     rows = 4)),
-      mainPanel(
-        textOutput(outputId = "RNA")
       
-      ))
+      ),
+  layout_columns(
+    col_widths = 12,
+    card(
+      card_header("RNA transcription of the DNA sequence"),
+      mainPanel(
+        verbatimTextOutput(outputId = "RNA")
+      )
+    )
+  ),
+  
+  layout_columns(
+    col_widths = 12,
+    card(
+      card_header("Virtual Ribosome"),
+      textAreaInput(inputId = "RNA_seq",
+                    label = "RNA Sequence input to translate",
+                    value = "",
+                    rows = 4)),
+    
+  ),
+  layout_columns(
+    col_widths = 12,
+    card(
+      card_header("Peptide translated from the input RNA sequence"),
+      mainPanel(
+        verbatimTextOutput(outputId = "peptide")
+      )
+    )
   )
+  
+)
+  
   
