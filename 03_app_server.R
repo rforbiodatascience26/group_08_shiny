@@ -17,4 +17,8 @@ output$dna <- renderText({
 output$base_counts_table <- renderTable({
   base_freqs(dna = current_dna())
 })
+
+output$RNA <- reactive({
+  transcribe_dna(dna = input$DNA_seq)
+})
 }

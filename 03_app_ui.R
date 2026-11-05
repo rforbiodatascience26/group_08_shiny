@@ -103,12 +103,13 @@ ui <- fluidPage(
     col_widths = 12,
     card(
       card_header("virtual_rna_pol"),
-      mainPanel(
       textAreaInput(inputId = "DNA_seq",
-                label = "virtual_arn_pol",
-                value = "",
-                rows = 4)
+                    label = "virtual_arn_pol",
+                    value = "",
+                    rows = 4)),
+      mainPanel(
+        textOutput(outputId = "RNA")
+      
       ))
   )
   
-)
